@@ -10,8 +10,9 @@ const WelcomePage = () => {
     const handleStartButtonClick = () => {
         if (isAuthorized() === true) {
             navigate('/dialog')
+        } else {
+            navigate('/signin')
         }
-        navigate('/signin')
     }
 
     return (

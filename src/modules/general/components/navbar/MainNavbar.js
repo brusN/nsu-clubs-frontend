@@ -5,7 +5,8 @@ import {useNavigate} from "react-router-dom";
 import {ApiContext} from "../../../../context/ApiContext";
 
 const MainNavbar = () => {
-    const {username, setUsername} = useContext(ApiContext)
+    const username = localStorage.getItem("username")
+    const {setUsername} = useContext(ApiContext)
     const navigate = useNavigate()
 
     const navigateToSignIn = () => {
