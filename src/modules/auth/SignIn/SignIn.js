@@ -1,10 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import './SignIn.css'
-import NsuLogo from "../../../../assets/logo/Novosibirsk_State_University_Logo.svg";
+import NsuLogo from "../../../assets/logo/Novosibirsk_State_University_Logo.svg";
 import SignInForm from "./components/SignInForm";
-import './SignIn.css'
 import {useNavigate} from "react-router-dom";
-import {ApiContext} from "../../../../context/ApiContext";
+import {ApiContext} from "../../../context/ApiContext";
 
 const SignIn = () => {
     const {setUsername} = useContext(ApiContext)

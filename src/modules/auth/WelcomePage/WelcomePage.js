@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import './WelcomePage.css'
-import NsuLogo from '../../../../assets/logo/Novosibirsk_State_University_Logo.svg'
-import {ApiContext} from "../../../../context/ApiContext";
+import NsuLogo from '../../../assets/logo/Novosibirsk_State_University_Logo.svg'
+import {ApiContext} from "../../../context/ApiContext";
 import {useNavigate} from "react-router-dom";
 
 const WelcomePage = () => {
