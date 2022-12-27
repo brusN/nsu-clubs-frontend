@@ -9,7 +9,7 @@ const QuestionForm = ({handleYes, handleNo, handleSoSo, question, classname}) =>
                 <div className='d-flex justify-content-between'>
                     <button className='btn btn-outline-success w-25' onClick={handleYes}>Да</button>
                     <button className='btn btn-outline-danger w-25' onClick={handleNo}>Нет</button>
-                    <button className='btn btn-outline-warning w-25' onClick={handleSoSo}>Затрудняюсь ответить</button>
+                    <button className='btn btn-outline-warning w-25' onClick={handleSoSo}>Точно не знаю</button>
                 </div>
             </div>
         </div>

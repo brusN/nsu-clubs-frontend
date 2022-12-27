@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react';
 import NsuLogo from "../../assets/logo/Novosibirsk_State_University_Logo.svg";
 import QuestionForm from "./components/QuestionForm/QuestionForm";
 import UserService from "../../service/UserService";
-import questionForm from "./components/QuestionForm/QuestionForm";
 import ClubList from "./components/ClubList/ClubList";
+import Notify from "./components/Notify/Notify";
 
 const Dialog = () => {
     const [isDialogFinished, setIsDialogFinished] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState({});
+    const [previousQuestionFact, setPreviousQuestionFact] = useState(null);
 
     useEffect(() => {
         startDialog();
@@ -31,6 +32,7 @@ const Dialog = () => {
         }).then((response) => {
             console.log(response.data)
             setCurrentQuestion(response.data);
+            setPreviousQuestionFact(response.data.factForLastQuestion);
             if (response.data.questionId === null) {
                 setIsDialogFinished(true);
             }
@@ -56,19 +58,36 @@ const Dialog = () => {
         startDialog();
     }
 
+    const handleCloseFactNotify = () => {
+        setPreviousQuestionFact(null);
+    }
+
     const renderForm = () => {
         if (isDialogFinished) {
-            return <ClubList
-                className='mt-auto w-75'
-                clubs={currentQuestion.clubs}
-                handleReset={handleReset} />
+            return (
+                <div className='mt-auto w-75'>
+                    <ClubList
+                        clubs={currentQuestion.clubs}
+                        handleReset={handleReset}/>
+                </div>
+            );
+        } else if (previousQuestionFact !== null) {
+            return (
+                <Notify
+                    className='mt-auto'
+                    text={previousQuestionFact}
+                    handleClose={handleCloseFactNotify}
+                />);
         } else {
-            return <QuestionForm
-                classname='mt-auto w-75'
-                question={currentQuestion}
-                handleYes={handleYesAnswer}
-                handleNo={handleNoAnswer}
-                handleSoSo={handleSoSoAnswer} />
+            return (
+                <div className='mt-auto w-75'>
+                    <QuestionForm
+                        question={currentQuestion}
+                        handleYes={handleYesAnswer}
+                        handleNo={handleNoAnswer}
+                        handleSoSo={handleSoSoAnswer}/>
+                </div>
+            );
         }
     }
 
