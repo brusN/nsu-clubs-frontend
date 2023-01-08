@@ -20,8 +20,48 @@ const continueDialog = (requestBody) => {
     });
 }
 
+const isDialogFinished = () => {
+    return localStorage.getItem('dialog') !== null
+}
+
+const notifyDialogFinished = () => {
+    localStorage.setItem('dialog', 'true')
+}
+
+const notifyDialogStarted= () => {
+    localStorage.removeItem('dialog')
+}
+
+const getClubRecommendations = () => {
+    return localStorage.getItem('club_recommendations')
+}
+
+const saveClubRecommendations = (recommendations) => {
+    localStorage.setItem('club_recommendations', JSON.stringify(recommendations))
+}
+
+const resetClubRecommendations = () => {
+    localStorage.removeItem('club_recommendations')
+}
+
+const getClubChoose = () => {
+    return localStorage.getItem('club_choose')
+}
+
+const saveClubChoose = (club) => {
+    localStorage.setItem('club_choose', JSON.stringify(club))
+}
+
+const resetClubChoose = () => {
+    localStorage.removeItem('club_choose')
+}
+
 const UserService = {
-    USER_ANSWER, baseUrl, startDialog, continueDialog
+    USER_ANSWER, baseUrl,
+    startDialog, continueDialog,
+    isDialogFinished, notifyDialogStarted, notifyDialogFinished,
+    saveClubChoose, resetClubChoose, getClubChoose,
+    saveClubRecommendations, resetClubRecommendations, getClubRecommendations
 }
 
 export default UserService;

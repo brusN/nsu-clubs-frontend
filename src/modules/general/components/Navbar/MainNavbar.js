@@ -3,6 +3,7 @@ import './MainNavbar.css'
 import {NavbarBrand} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {ApiContext} from "../../../../context/ApiContext";
+import UserService from "../../../../service/UserService";
 
 const MainNavbar = () => {
     const username = localStorage.getItem("username")
@@ -15,6 +16,9 @@ const MainNavbar = () => {
     const logout = () => {
         setUsername(null)
         localStorage.removeItem("username")
+        UserService.notifyDialogStarted()
+        UserService.resetClubChoose()
+        UserService.resetClubRecommendations()
         navigate('/')
     }
 

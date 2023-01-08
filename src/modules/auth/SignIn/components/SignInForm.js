@@ -9,7 +9,7 @@ const SignInForm = ({login, className}) => {
 
     const handleLoginButtonClick = (e) => {
         e.preventDefault()
-        login(formUsername)
+        login(formUsername === '' ? 'Гость': formUsername)
     }
 
     return <div className={className}>

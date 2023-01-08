@@ -19,7 +19,8 @@ const WelcomePage = () => {
         <div className='d-flex flex-column justify-content-center welcome-page-container'>
             <div className='d-flex flex-column justify-content-center align-items-center h-100'>
                 <h1 className='mt-auto mt-5 mb-3 '>Добро пожалововать в NSU Clubs</h1>
-                <button className='btn btn-lg btn-outline-dark' onClick={handleStartButtonClick}>Начать</button>
+                <h5>В ходе короткой беседы мы посоветуем клубы, которые обязательно тебе понравятся!</h5>
+                <button className='mt-1 btn btn-lg btn-outline-dark' onClick={handleStartButtonClick}>Начать</button>
                 <img className='mt-auto' src={NsuLogo} alt="NSU logo"/>
             </div>
         </div>

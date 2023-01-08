@@ -1,7 +1,7 @@
 import './App.css';
 import {Route, Routes} from "react-router-dom";
 import ApiProvider from "../../context/ApiContext";
-import MainNavbar from "./components/navbar/MainNavbar";
+import MainNavbar from "./components/Navbar/MainNavbar";
 import WelcomePage from "../auth/WelcomePage/WelcomePage";
 import SignIn from "../auth/SignIn/SignIn";
 import Dialog from "../dialog/Dialog";
